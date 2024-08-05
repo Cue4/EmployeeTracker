@@ -18,6 +18,6 @@ INSERT INTO employees (first_name, last_name, email, phone, role_id, hire_date, 
 (2, 'Carl Lee', 'Smith', 'carl.smith@example.com', '555-0102', 3, '2022-08-22', 85000),
 (3, 'Alieu', 'Danso', 'alieu.danso@example.com', '555-0103', 4, '2024-02-05', 90000),
 (4, 'Brian', 'Talbert', 'brian.talbert@example.com', '555-0104', 6, '2023-11-30', 70000),
-(5, 'Jonathan', 'Jacks', 'jon.jacks@example.com', '555-0105', 8, '2024-03-01', 72000);
+(5, 'Jonathan', 'Jacks', 'jon.jacks@example.com', '555-0105', 8, '2024-03-01', 75000);
 
 

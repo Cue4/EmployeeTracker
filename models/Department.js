@@ -1,4 +1,4 @@
-const pool = require('../config/db');
+const pool = require('../config/connection');
 
 // Function to create a new department
 const createDepartment = async (name) => {

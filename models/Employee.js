@@ -1,4 +1,4 @@
-const pool = require('../config/db');
+const pool = require('../config/connection');
 
 // Function to create a new employee
 const createEmployee = async (name, roleId, departmentId) => {

@@ -5,7 +5,7 @@ const pool = new Pool({
   host: 'localhost',         
   database: 'employeetracker_db',   
   password: 'q123',  
-  port: 3001,                
+  port: 5432,                
 });
 
 

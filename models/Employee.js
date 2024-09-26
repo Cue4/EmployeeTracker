@@ -15,7 +15,7 @@ const createEmployee = async (name, roleId, departmentId) => {
 
 // Function to get all employees
 const getAllEmployees = async () => {
-  const query = 'SELECT * FROM employees';
+  const query = 'SELECT * FROM employee';
   try {
     const result = await pool.query(query);
     return result.rows;

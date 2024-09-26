@@ -1,7 +1,7 @@
 const pool = require('../config/connection');
 
 // Function to create a new department
-const createDepartment = async (name) => {
+const addDepartment = async (name) => {
   const query = 'INSERT INTO departments (name) VALUES ($1) RETURNING *';
   const values = [name];
   try {
@@ -65,7 +65,7 @@ const deleteDepartment = async (id) => {
 };
 
 module.exports = {
-  createDepartment,
+  addDepartment,
   getAllDepartments,
   getDepartmentById,
   updateDepartment,

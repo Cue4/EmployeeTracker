@@ -75,6 +75,6 @@ module.exports = {
   getRoleById,
   updateRole,
   deleteRole,
-  viewAllRoles
+  viewAllRoles,
 };
 

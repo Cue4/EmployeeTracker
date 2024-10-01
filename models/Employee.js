@@ -1,6 +1,5 @@
 const pool = require('../config/connection');
 
-// Function to create a new employee
 const createEmployee = async (name, roleId, departmentId) => {
   const query = 'INSERT INTO employees (name, role_id, department_id) VALUES ($1, $2, $3) RETURNING *';
   const values = [name, roleId, departmentId];
@@ -13,7 +12,6 @@ const createEmployee = async (name, roleId, departmentId) => {
   }
 };
 
-// Function to get all employees
 const getAllEmployees = async () => {
   const query = 'SELECT * FROM employees';
   try {
@@ -25,7 +23,6 @@ const getAllEmployees = async () => {
   }
 };
 
-// Function to get an employee by ID
 const getEmployeeById = async (id) => {
   const query = 'SELECT * FROM employees WHERE id = $1';
   const values = [id];
@@ -38,7 +35,6 @@ const getEmployeeById = async (id) => {
   }
 };
 
-// Function to update an employee
 const updateEmployee = async (id, name, roleId, departmentId) => {
   const query = 'UPDATE employees SET name = $1, role_id = $2, department_id = $3 WHERE id = $4 RETURNING *';
   const values = [name, roleId, departmentId, id];
@@ -51,7 +47,6 @@ const updateEmployee = async (id, name, roleId, departmentId) => {
   }
 };
 
-// Function to delete an employee
 const deleteEmployee = async (id) => {
   const query = 'DELETE FROM employees WHERE id = $1 RETURNING *';
   const values = [id];
@@ -64,7 +59,6 @@ const deleteEmployee = async (id) => {
   }
 };
 
-// Function to view all employees with their role and department details
 const viewEmployee = async () => {
   const query = `
     SELECT employees.id, employees.name, roles.title AS role, departments.name AS department

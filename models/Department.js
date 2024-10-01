@@ -1,6 +1,5 @@
 const pool = require('../config/connection');
 
-// Function to create a new department
 const addDepartment = async (name) => {
   const query = 'INSERT INTO departments (name) VALUES ($1) RETURNING *';
   const values = [name];
@@ -22,7 +21,6 @@ const viewDepartment = async () => {
   }
 };
 
-// Function to get all departments
 const getAllDepartments = () => {
   const query = 'SELECT * FROM departments';
   try {
@@ -34,7 +32,6 @@ const getAllDepartments = () => {
   }
 };
 
-// Function to get a department by ID
 const getDepartmentById = async (id) => {
   const query = 'SELECT * FROM departments WHERE id = $1';
   const values = [id];
@@ -47,7 +44,6 @@ const getDepartmentById = async (id) => {
   }
 };
 
-// Function to update a department
 const updateDepartment = async (id, name) => {
   const query = 'UPDATE departments SET name = $1 WHERE id = $2 RETURNING *';
   const values = [name, id];
@@ -60,7 +56,6 @@ const updateDepartment = async (id, name) => {
   }
 };
 
-// Function to delete a department
 const deleteDepartment = async (id) => {
   const query = 'DELETE FROM departments WHERE id = $1 RETURNING *';
   const values = [id];

@@ -25,6 +25,7 @@ const getAllDepartments = () => {
   const query = 'SELECT * FROM departments';
   try {
     const result = pool.query(query);
+    console.log(result);
     return result.rows;
   } catch (err) {
     console.error('Error fetching departments:', err);

@@ -70,25 +70,25 @@ const mainMenu = async () => {
 };
 
 const addNewEmployee = async () => {
-  const { name, roleId, departmentId } = await inquirer.prompt([
+  const { first_name, last_name, roleId, departmentId } = await inquirer.prompt([
     {
       type: 'input',
-      name: 'name',
-      message: 'Enter the employee\'s name:',
+      name: 'first_name',
+      message: 'Enter the employee\'s first name:',
     },
+  {
+    type: 'input',
+    name: 'last_name',
+    message: 'Enter the employee\'s last name:',
+  },
     {
       type: 'number',
       name: 'roleId',
       message: 'Enter the employee\'s role ID:',
-    },
-    {
-      type: 'number',
-      name: 'departmentId',
-      message: 'Enter the employee\'s department ID:',
-    },
+    }
   ]);
 
-  await createEmployee(name, roleId, departmentId);
+  await createEmployee(first_name, last_name, roleId);
   await mainMenu();
 };
 

@@ -63,6 +63,11 @@ const deleteRole = async (id) => {
     throw err;
   }
 };
+const viewAllRoles = async () => {
+  const { rows } = await getAllRoles();
+  console.table(rows);
+};
+
 
 module.exports = {
   createRole,
@@ -70,5 +75,6 @@ module.exports = {
   getRoleById,
   updateRole,
   deleteRole,
+  viewAllRoles
 };
 

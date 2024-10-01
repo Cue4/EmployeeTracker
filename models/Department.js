@@ -13,11 +13,20 @@ const addDepartment = async (name) => {
   }
 };
 
+const viewDepartment = async () => {
+  try {
+    const { rows } = await getAllDepartments();
+    console.table(rows);
+  } catch (err) {
+    console.error('Error fetching departments:', err);
+  }
+};
+
 // Function to get all departments
-const getAllDepartments = async () => {
+const getAllDepartments = () => {
   const query = 'SELECT * FROM departments';
   try {
-    const result = await pool.query(query);
+    const result = pool.query(query);
     return result.rows;
   } catch (err) {
     console.error('Error fetching departments:', err);
@@ -66,6 +75,7 @@ const deleteDepartment = async (id) => {
 
 module.exports = {
   addDepartment,
+  viewDepartment,
   getAllDepartments,
   getDepartmentById,
   updateDepartment,

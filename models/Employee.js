@@ -8,14 +8,14 @@ const createEmployee = async (name, roleId, departmentId) => {
     const result = await pool.query(query, values);
     return result.rows[0];
   } catch (err) {
-    console.error('Error creating employee:', err);
+    console.error('Error creating employees:', err);
     throw err;
   }
 };
 
 // Function to get all employees
 const getAllEmployees = async () => {
-  const query = 'SELECT * FROM employee';
+  const query = 'SELECT * FROM employees';
   try {
     const result = await pool.query(query);
     return result.rows;
@@ -33,7 +33,7 @@ const getEmployeeById = async (id) => {
     const result = await pool.query(query, values);
     return result.rows[0];
   } catch (err) {
-    console.error('Error fetching employee:', err);
+    console.error('Error fetching employees:', err);
     throw err;
   }
 };
@@ -46,7 +46,7 @@ const updateEmployee = async (id, name, roleId, departmentId) => {
     const result = await pool.query(query, values);
     return result.rows[0];
   } catch (err) {
-    console.error('Error updating employee:', err);
+    console.error('Error updating employees:', err);
     throw err;
   }
 };
@@ -59,13 +59,36 @@ const deleteEmployee = async (id) => {
     const result = await pool.query(query, values);
     return result.rows[0];
   } catch (err) {
-    console.error('Error deleting employee:', err);
+    console.error('Error deleting employees:', err);
+    throw err;
+  }
+};
+
+// Function to view all employees with their role and department details
+const viewEmployee = async () => {
+  const query = `
+    SELECT employees.id, employees.name, roles.title AS role, departments.name AS department
+    FROM employees
+    JOIN roles ON employees.role_id = roles.id
+    JOIN departments ON employees.department_id = departments.id;
+  `;
+  try {
+    const result = await pool.query(query);
+    return result.rows;
+  } catch (err) {
+    console.error('Error fetching employees with role and department details:', err);
     throw err;
   }
 };
 
 module.exports = {
+  viewEmployee,
+};
+
+
+module.exports = {
   createEmployee,
+  viewEmployee,
   getAllEmployees,
   getEmployeeById,
   updateEmployee,

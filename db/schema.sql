@@ -3,7 +3,7 @@ CREATE DATABASE employeetracker_db;
 
 \c employeetracker_db;
 
-CREATE TABLE departments (
+CREATE TABLE department (
   id SERIAL PRIMARY KEY,
     name VARCHAR(30) UNIQUE NOT NULL
 );

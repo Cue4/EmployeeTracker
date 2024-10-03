@@ -15,8 +15,8 @@ const createRole = async (title, departmentId) => {
 
 // Function to get all roles
 const getAllRoles = async () => {
-  const query = 'SELECT * FROM roles';
   try {
+    const query = 'SELECT * FROM roles';
     const result = await pool.query(query);
     return result.rows;
   } catch (err) {
@@ -64,8 +64,18 @@ const deleteRole = async (id) => {
   }
 };
 const viewAllRoles = async () => {
-  const { rows } = await getAllRoles();
-  console.table(rows);
+  try {
+  const result = await getAllRoles();
+  console.log(result);
+
+  if (result && result.rows) {
+    console.table(result.rows);
+  }else {
+    console.error('No roles found or result.rows is undefined.');
+  }
+}catch (err) {
+    console.error('Error while fetching roles:', err);
+  }
 };
 
 

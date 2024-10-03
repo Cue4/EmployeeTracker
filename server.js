@@ -50,7 +50,7 @@ const mainMenu = async () => {
       await viewAllRoles();
       break;
     case 'View All Employees':
-      viewAllEmployees();
+      await viewEmployee();
       break;
     case 'Add Department':
       await addDepartment();
@@ -90,18 +90,6 @@ const addNewEmployee = async () => {
 
   await createEmployee(first_name, last_name, roleId);
   await mainMenu();
-};
-
-// Function to view all employees
-function viewAllEmployees () {
-  console.log('viewing employees');
-    getAllEmployees().then(({rows}) => {
-      console.log({rows});
-      let employees = rows
-      console.table(employees);
-    })
-
- mainMenu();
 };
 
 startApp();

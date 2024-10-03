@@ -1,7 +1,7 @@
 const pool = require('../config/connection');
 
 const addDepartment = async (name) => {
-  const query = 'INSERT INTO departments (name) VALUES ($1) RETURNING *';
+  const query = 'INSERT INTO department (name) VALUES ($1) RETURNING *';
   const values = [name];
   try {
     const result = await pool.query(query, values);
@@ -22,7 +22,7 @@ const viewDepartment = async () => {
 };
 
 const getAllDepartments = () => {
-  const query = 'SELECT * FROM departments';
+  const query = 'SELECT * FROM department';
   try {
     const result = pool.query(query);
     console.log(result);
@@ -34,7 +34,7 @@ const getAllDepartments = () => {
 };
 
 const getDepartmentById = async (id) => {
-  const query = 'SELECT * FROM departments WHERE id = $1';
+  const query = 'SELECT * FROM department WHERE id = $1';
   const values = [id];
   try {
     const result = await pool.query(query, values);
@@ -46,7 +46,7 @@ const getDepartmentById = async (id) => {
 };
 
 const updateDepartment = async (id, name) => {
-  const query = 'UPDATE departments SET name = $1 WHERE id = $2 RETURNING *';
+  const query = 'UPDATE department SET name = $1 WHERE id = $2 RETURNING *';
   const values = [name, id];
   try {
     const result = await pool.query(query, values);
@@ -58,7 +58,7 @@ const updateDepartment = async (id, name) => {
 };
 
 const deleteDepartment = async (id) => {
-  const query = 'DELETE FROM departments WHERE id = $1 RETURNING *';
+  const query = 'DELETE FROM department WHERE id = $1 RETURNING *';
   const values = [id];
   try {
     const result = await pool.query(query, values);

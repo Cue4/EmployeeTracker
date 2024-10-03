@@ -90,8 +90,15 @@ const addNewEmployee = async () => {
 
   await createEmployee(first_name, last_name, roleId);
   await mainMenu();
+
 };
 
+async function viewEmployee(){
+  console.log('hello')
+  let { rows } = await getAllEmployees()
+  console.table (rows)
+  await mainMenu();
+}
 startApp();
 
 function startApp (){

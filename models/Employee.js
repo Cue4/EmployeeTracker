@@ -16,7 +16,7 @@ const getAllEmployees = async () => {
   const query = 'SELECT * FROM employee';
   try {
     const result = await pool.query(query);
-    return result.rows;
+    return result;
   } catch (err) {
     console.error('Error fetching employee:', err);
     throw err;

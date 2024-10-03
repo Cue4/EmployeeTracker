@@ -21,12 +21,12 @@ const viewDepartment = async () => {
   }
 };
 
-const getAllDepartments = () => {
+const getAllDepartments = async () => {
   const query = 'SELECT * FROM department';
   try {
-    const result = pool.query(query);
-    console.log(result);
-    return result.rows;
+    const result = await pool.query(query);
+    console.log(result.rows);
+    return result;
   } catch (err) {
     console.error('Error fetching departments:', err);
     throw err;

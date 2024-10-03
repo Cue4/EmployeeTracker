@@ -56,7 +56,7 @@ const mainMenu = async () => {
       await addDepartment();
       break;
     case 'Add Role':
-      await addRole();
+      await createRole();
       break;
     case 'Add Employee':
       await addNewEmployee();

@@ -1,6 +1,5 @@
-const pool = require('../config/connection');
+const pool = require ('../config/connection');
 
-// Function to create a new role
 const createRole = async (title, departmentId) => {
   const query = 'INSERT INTO roles (title, department_id) VALUES ($1, $2) RETURNING *';
   const values = [title, departmentId];
